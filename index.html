@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerFlow — Your job hunt, in one pipeline</title>
+  <meta name="description" content="CareerFlow turns scattered job hunting into one calm pipeline. Capture listings, track every stage, and never miss a follow-up.">
+  <meta name="theme-color" content="#0c0c0a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23818cf8'/%3E%3Crect x='8' y='8' width='8' height='16' rx='2' fill='%230c0c0a'/%3E%3Crect x='19' y='8' width='5' height='16' rx='2' fill='%230c0c0a'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("cf-theme"); } catch (e) {}
+      if (t) document.documentElement.dataset.theme = t;
+    })();
+  </script>
+</head>
+<body>
+
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="CareerFlow home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">CareerFlow</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#product">Product</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"></path>
+          </svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"></path>
+          </svg>
+        </button>
+        <a class="btn btn-primary nav-cta" href="#cta">Start free</a>
+        <button class="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="#product">Product</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary" href="#cta">Start free</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="eyebrow reveal">Private beta · Free while we build it</span>
+        <h1 class="reveal">Your entire job search,<br><em>organized instantly.</em></h1>
+        <p class="lede reveal">
+          Capture applications directly from your browser and track them in a unified board. Stop wrestling with spreadsheets and focus on interviews.
+        </p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary btn-lg" href="#cta">Start free — 2 minute setup</a>
+          <a class="btn btn-ghost btn-lg" href="#product">See the pipeline</a>
+        </div>
+        <p class="hero-note reveal">No credit card. Your data stays on your device.</p>
+      </div>
+
+      <div class="window-wrap reveal">
+        <div class="window" role="img" aria-label="Screenshot of the CareerFlow pipeline dashboard">
+          <div class="window-bar">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="url-pill">app.careerflow.dev/pipeline</span>
+            <span class="bar-spacer" aria-hidden="true"></span>
+          </div>
+          <div class="window-body">
+            <aside class="win-sidebar">
+              <span class="mini-mark" aria-hidden="true"></span>
+              <span class="side-item active" aria-hidden="true">Pipeline</span>
+              <span class="side-item" aria-hidden="true">Captures</span>
+              <span class="side-item" aria-hidden="true">Follow-ups</span>
+              <span class="side-item" aria-hidden="true">Settings</span>
+            </aside>
+            <div class="win-main">
+              <div class="win-head">
+                <h2>Pipeline</h2>
+                <button class="btn btn-primary btn-sm" id="capture-btn" type="button">+ Capture a job</button>
+              </div>
+              <div class="kanban" id="kanban">
+                <div class="col">
+                  <div class="col-head"><span>Wishlist</span><span class="col-count" id="count-wishlist">2</span></div>
+                  <div class="card" data-stage="wishlist">
+                    <span class="tag">Remote</span>
+                    <strong>Senior Frontend Engineer</strong>
+                    <span class="meta">Acdyon · Added 2d ago</span>
+                  </div>
+                  <div class="card" data-stage="wishlist">
+                    <span class="tag">Hybrid</span>
+                    <strong>Product Engineer</strong>
+                    <span class="meta">Cloudflare · Saved from LinkedIn</span>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="col-head"><span>Applied</span><span class="col-count" id="count-applied">2</span></div>
+                  <div class="card due" data-stage="applied">
+                    <span class="tag">Full-time</span>
+                    <strong>Design Engineer</strong>
+                    <span class="meta"><span class="pulse" aria-hidden="true"></span>Follow-up due today</span>
+                  </div>
+                  <div class="card" data-stage="applied">
+                    <span class="tag">Full-time</span>
+                    <strong>Staff Engineer</strong>
+                    <span class="meta">Linear · Sent notes 1h ago</span>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="col-head"><span>Interview</span><span class="col-count" id="count-interview">1</span></div>
+                  <div class="card" data-stage="interview">
+                    <span class="tag">Round 3</span>
+                    <strong>Frontend Engineer</strong>
+                    <span class="meta">Vercel · Thursday 2pm</span>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="col-head"><span>Offer</span><span class="col-count" id="count-offer">1</span></div>
+                  <div class="card offer" data-stage="offer">
+                    <span class="tag">Offer</span>
+                    <strong>Frontend Engineer</strong>
+                    <span class="meta">Spotify · Reply by Friday</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="product">
+      <div class="section-inner">
+        <p class="kicker reveal">The product</p>
+        <h2 class="reveal">All your applications,<br>in one clean workspace.</h2>
+        <p class="sub reveal">
+          Capture a listing in two clicks, watch it move through your stages, and
+          let CareerFlow remind you when a thread has gone quiet. That’s the whole job.
+        </p>
+        <div class="step-grid">
+          <article class="step reveal">
+            <span class="step-num">01</span>
+            <div class="chip" aria-hidden="true">
+              <span class="chip-bar"><span class="chip-dot"></span>careerflow.dev/jobs</span>
+              <span class="chip-row"><span class="chip-title">Design Engineer</span><span class="chip-add">+ Capture</span></span>
+            </div>
+            <h3>Capture</h3>
+            <p>Save any listing from your browser in two clicks. It lands in your pipeline with the details you’ll actually need.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step-num">02</span>
+            <div class="chip" aria-hidden="true">
+              <span class="chip-row"><span class="chip-title">Design Engineer</span><span class="chip-tag">Applied</span></span>
+              <span class="chip-bar chip-bar-faint">Wishlist → Applied → Interview → Offer</span>
+            </div>
+            <h3>Track</h3>
+            <p>Every stage lives on one board. Drag a card forward, add notes, and know exactly where each application stands.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step-num">03</span>
+            <div class="chip" aria-hidden="true">
+              <span class="chip-row"><span class="chip-title">Follow-up</span><span class="chip-tag chip-tag-warn">due today</span></span>
+              <span class="chip-bar chip-bar-faint">Last reply: 12 days ago</span>
+            </div>
+            <h3>Follow up</h3>
+            <p>CareerFlow nudges you when a thread has been quiet too long — so no opportunity dies from silence.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-stats" id="stats">
+      <div class="section-inner stats-band">
+        <div class="stat reveal">
+          <span class="stat-value" data-count="4" data-suffix="">0</span>
+          <span class="stat-label">interview stages tracked easily</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-value" data-count="1" data-suffix="">0</span>
+          <span class="stat-label">inbox for every reply</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-value" data-count="0" data-suffix="">0</span>
+          <span class="stat-label">lost browser tabs</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-value"><span data-count="1">0</span><span> min</span></span>
+          <span class="stat-label">setup time to first capture</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="section-inner faq-inner">
+        <p class="kicker reveal">FAQ</p>
+        <h2 class="reveal">Straight answers.</h2>
+        <div class="faq-list reveal">
+          <details class="faq">
+            <summary>Is this actually available yet?</summary>
+            <p>CareerFlow is in private beta. The pipeline you see on this page is a working design preview of the real app — sign up and we’ll email you the moment your invite is ready.</p>
+          </details>
+          <details class="faq">
+            <summary>Where does my data live?</summary>
+            <p>On your device. CareerFlow is local-first: no account required to use the core flow, no recruiter data sold, nothing synced to a server unless you choose to.</p>
+          </details>
+          <details class="faq">
+            <summary>Does it apply to jobs for me?</summary>
+            <p>No, and that’s deliberate. It captures listings and manages the follow-up — the applying stays your job. Automation that impersonates people is a line we won’t cross.</p>
+          </details>
+          <details class="faq">
+            <summary>What does it cost?</summary>
+            <p>Nothing while we’re in beta. When we launch, there will be a free tier and a paid one. You’ll never be locked out of your own data.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-band" id="cta">
+      <div class="section-inner cta-inner reveal">
+        <h2>Stop stressing. Start tracking.</h2>
+        <p>Two minutes from this page to your first captured job.</p>
+        <form class="waitlist" id="waitlist-form">
+          <label class="sr-only" for="email">Email address</label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com" autocomplete="email">
+          <button class="btn btn-primary btn-lg" type="submit">Join the beta</button>
+        </form>
+        <p class="cta-note" id="cta-note" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="brand" href="#top" aria-label="CareerFlow home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">CareerFlow</span>
+      </a>
+      <p>A design assignment for Acdyon Technologies. Real mockups, honest copy — no invented logos, counts, or testimonials.</p>
+      <nav aria-label="Footer">
+        <a href="#product">Product</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <canvas class="confetti" id="confetti" aria-hidden="true"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
