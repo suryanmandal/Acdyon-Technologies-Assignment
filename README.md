@@ -1,7 +1,3 @@
-# ACDYON-TECHNOLOGIES-Assignment
-
-Assignment — frontend challenge for Acdyon Technologies.
-
 # CareerFlow — Assignment for Acdyon Technologies (Part 2)
 
 A premium home page for **CareerFlow**, a local-first job-hunt workspace. Built as the Acdyon Technologies frontend challenge, Part 2.
@@ -16,6 +12,23 @@ A premium home page for **CareerFlow**, a local-first job-hunt workspace. Built 
 - Works at 390px and 1440px, no horizontal scroll
 - **Easter egg:** the Konami code
 
+## Structural Diagram
+
+```mermaid
+graph TD;
+    A[index.html] --> B[styles.css]
+    A --> C[script.js]
+    A --> D[DECISIONS.md]
+    
+    subgraph UI Structure
+        E[Navigation] --> A
+        F[Hero Section] --> A
+        G[Interactive Kanban Demo] --> A
+        H[Feature Stats] --> A
+        I[FAQ Section] --> A
+    end
+```
+
 ## Stack
 
 Plain HTML + CSS + JS. No frameworks, no build step, no dependencies — it's a document, not an app.
@@ -28,11 +41,14 @@ Open `index.html` directly, or serve it:
 npx serve .
 ```
 
-## Deploy
+## Deploy (Vercel)
 
-- **Netlify:** drag the folder onto https://app.netlify.com/drop
-- **Vercel:** `vercel` in this directory (static preset)
-- **GitHub Pages:** push to a repo, enable Pages → branch `main`, root
+This project is optimized for deployment on Vercel. 
+
+1. Push this repository to your GitHub account.
+2. Go to your [Vercel Dashboard](https://vercel.com/dashboard) and click **Add New** -> **Project**.
+3. Import this GitHub repository.
+4. Leave the Framework Preset as `Other` (Static HTML) and click **Deploy**.
 
 ## Files
 
